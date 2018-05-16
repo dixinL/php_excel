@@ -1,0 +1,59 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.active{
+    display: none;
+}
+.center{
+    width: 100%;
+}
+.incenter{
+    width: 1360px;
+    margin: auto;
+}
+.left{
+
+    float: left;
+    background: #9d9d9d;
+    padding: 30px 15px;
+}
+.right{
+    width: 1165px;
+
+    float: right;
+    background: #EFEFEF;
+}
+a {
+    border:1px solid #CCC;
+    background:#FFF;
+}
+.thh{
+    height:40px;
+    font-size: 20px;
+}
+.cen{
+    text-align: center;
+}
+.inputwid{
+    width: 150px;
+}
+.padd{
+    padding: 15px;
+}
+.marg{
+    margin: 10px 0px;
+}
+.sele{
+    width: 114px;
+    height: 24px;
+    font-size: 15px;
+}
+.onit{
+    padding: 40px;
+    background-color: #8B94A5;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    z-index: 1;
+}
