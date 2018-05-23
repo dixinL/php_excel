@@ -1,7 +1,7 @@
 
 <?php
 header('Content-Type: text/html;charset=utf-8');
-if ($_GET['new_flight']==""){
+if ($_GET['new_address']==""){
     echo "添加失败或重复添加，请刷新重试";
 }else{
     $host="localhost";

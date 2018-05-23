@@ -24,12 +24,13 @@ $(document).ready(function() {
         cat1=document.getElementById("cat").value/1;
         dog1=document.getElementById("dog").value/1;
         pet_num=cat1/1+dog1/1;
-        sum_pet=pet_num*7;
-        sum_money=pet_num*1000;
+        sum_pet=pet_num*1000;
+        sum_money=pet_num*7;
         if(address1 !=='' && flight1 !=='' && order1 !=='' && destination1 !==''){
-            $("<tr><td>"+order1+"</td><td>"+flight1+"</td><td>"+times+"</td><td>"+address1+"</td><td>"+destination1+"</td><td>"+cat1+"</td><td>"+dog1+"</td><td>"+sum_pet+"</td><td>"+sum_money+"</td><td></td><td class='dd'><a href='javascript:void(0);' class='delBtn'>删除</a></td></tr>").insertBefore(".append-row");
+            $("<tr><td>"+order1+"</td><td>"+flight1+"</td><td>"+times+"</td><td>"+address1+"</td><td>"+destination1+"</td><td>"+cat1+"</td><td>"+dog1+"</td><td>"+sum_money+"</td><td>"+sum_pet+"</td><td></td><td class='dd'><a href='javascript:void(0);' class='delBtn'>删除</a></td></tr>").insertBefore(".append-row");
         }
-
+        del();
+        del1();
         trEdit();
         delTr();
         //$("tbody tr:odd").css("background-color","#EEEEEE");
@@ -92,6 +93,7 @@ function trEdit(){
                 var inputtext = $(this).val();
                 //将td的内容修改成文本框中的内容
                 tdObj.html(inputtext);
+                $(this).parent()
             }
             //处理esc的情况
             if (keycode == 27) {

@@ -1,9 +1,7 @@
 
 <?php
 header('Content-Type: text/html;charset=utf-8');
-if ($_GET['flight']==""){
-    echo "添加失败或重复添加，请刷新重试";
-}else{
+
     $host="localhost";
     $username="root";
     $password="1234";
@@ -17,7 +15,7 @@ if ($_GET['flight']==""){
     $result=mysql_select_db ("dixin");
 
     if (! $result) {
-        die ("添加失败，请重试");
+        die ("保存失败，请重试");
     }
     mysql_query("set character set 'utf8'");//读库
     mysql_query("set names 'utf8'");//写库
@@ -25,16 +23,17 @@ if ($_GET['flight']==""){
     //删除
     //$exec="delete from dixin.leagueoflegends where id IN ($i)";
     //写入
-
-    $exec="insert into dixin.pat_table VALUES ('','".$_GET['new_address']."','".$_GET['new_flight']."','".$_GET['new_address']."','".$_GET['new_address']."','".$_GET['new_address']."','".$_GET['new_address']."','".$_GET['new_address']."','".$_GET['new_address']."','".$_GET['new_address']."')";
-    $result= mysql_query($exec);
-    if (!$result){
-        echo '添加失败';
-    }
-    else{
-        echo '添加成功';
-    }
+        $ti1=$_POST['time'];
+        $exec1="delete from dixin.pet_table where times = '$ti1'";
+        $ds=mysql_query($exec1);
+        $exec="insert into dixin.pet_table VALUES ('','".$_POST['time']."','".$_POST['address']."','".$_POST['destination']."','".$_POST['flight']."','".$_POST['order']."','".$_POST['cat']."','".$_POST['dog']."','".$_POST['ps']."')";
+        $result= mysql_query($exec);
+        if (!$result){
+            echo '保存失败';
+        }
+        else{
+            echo '保存成功';
+        }
     //这里是插入数据库的语句
     mysql_close($connection);
-}
 ?>

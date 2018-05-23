@@ -2,13 +2,13 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>货物起运申报单</title>
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/table.js"></script>
     <script src="js/js_excel_ffgo.js"></script>
     <link rel="stylesheet" href="style/test.css">
     <script src="js/ajax_php.js"></script>
-
+    <link rel='icon' href='image/18.1.19dixin图标-3.ico'/>
 </head>
 <body onload="flight()">
 <div class="center">
@@ -121,7 +121,9 @@
                 </table>
 
                 <input id="Button1" type="button" value="导出EXCEL" onclick="table2excel('targetTable')"/>
-                <!--<input id="save" type="button" value="保存" onclick="save()"/>-->
+                <input id="save" type="button" value="保存" onclick="save()"/>
+                <input id="recover1" type="button" value="恢复信息" onclick="recover1()"/>
+                <div id="act"></div>
             </div>
         </div>
     </div>
@@ -143,15 +145,30 @@
         </div>
     </form>
 </div>
+<div id="reco" class="onit active">
+    <form name="reg_testdate">
+            <select id="yyyy" name="YYYY" onchange="YYYYDD(this.value)">
+                <option value="">请选择 年</option>
+            </select>
+            <select id="mm" name="MM" onchange="MMDD(this.value)">
+                <option value="">选择 月</option>
+            </select>
+            <select id="dd" name="DD">
+                <option value="">选择 日</option>
+            </select>
+        <select id="apm" name="APM">
+            <option value="上午">上午</option>
+            <option value="下午">下午</option>
+        </select>
+        <div class="cen marg">
+            <a href="###" onclick="recoverr()">查找记录</a>
+            <a href="###" onclick="passit()">取消</a>
+        </div>
+    </form>
+</div>
 </body>
-<!--<script>
-    function save() {
-        var rows = $("#targetTable tr").length;
-        for(var i=7;i<=rows;i++){
-            alert(i);
-            for(var j=0;j<8;j++){
-            }
-        }
-    }
-</script>-->
+<script>
+
+
+</script>
 </html>
