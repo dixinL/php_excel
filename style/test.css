@@ -52,8 +52,12 @@ a {
 .onit{
     padding: 40px;
     background-color: #8B94A5;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
     position: absolute;
     top: 30%;
     left: 40%;
     z-index: 1;
 }
+
