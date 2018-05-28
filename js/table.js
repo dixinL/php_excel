@@ -17,17 +17,17 @@ $(document).ready(function() {
     $("#add_table").bind("click", function(){
         var myDate = new Date();//获取系统当前时间
         var times = myDate.toLocaleString( );
-        address1=document.getElementById("address").value;
-        flight1=document.getElementById("flight").value;
-        order1=document.getElementById("order").value;
-        destination1=document.getElementById("destination").value;
-        cat1=document.getElementById("cat").value/1;
-        dog1=document.getElementById("dog").value/1;
-        pet_num=cat1/1+dog1/1;
-        sum_pet=pet_num*1000;
-        sum_money=pet_num*7;
+        var address1=document.getElementById("address").value;
+        var flight1=document.getElementById("flight").value;
+        var order1=document.getElementById("order").value;
+        var destination1=document.getElementById("destination").value;
+        var cat1=document.getElementById("cat").value/1;
+        var dog1=document.getElementById("dog").value/1;
+        var pet_num=cat1/1+dog1/1;
+        var sum_pet=pet_num*1000;
+        var sum_money=pet_num*7;
         if(address1 !=='' && flight1 !=='' && order1 !=='' && destination1 !==''){
-            $("<tr><td>"+order1+"</td><td>"+flight1+"</td><td>"+times+"</td><td>"+address1+"</td><td>"+destination1+"</td><td>"+cat1+"</td><td>"+dog1+"</td><td>"+sum_money+"</td><td>"+sum_pet+"</td><td></td><td class='dd'><a href='javascript:void(0);' class='delBtn'>删除</a></td></tr>").insertBefore(".append-row");
+            $("<tr><td>"+order1+"</td><td>"+flight1+"</td><td>"+times+"</td><td>"+address1+"</td><td>"+destination1+"</td><td>"+cat1+"</td><td>"+dog1+"</td><td>"+sum_pet+"</td><td>"+sum_money+"</td><td></td><td class='dd'><a href='javascript:void(0);' class='delBtn'>删除</a></td></tr>").insertBefore(".append-row");
         }
         del();
         del1();
@@ -93,7 +93,13 @@ function trEdit(){
                 var inputtext = $(this).val();
                 //将td的内容修改成文本框中的内容
                 tdObj.html(inputtext);
-                $(this).parent()
+                var catt = tdObj.parent().children().slice(5,6).text();
+                var dogg = tdObj.parent().children().slice(6,7).text();
+                var pet0 = catt/1+dogg/1;
+                var pett = pet0*1000;
+                var monn = pet0*7;
+                tdObj.parent().children().slice(7,8).html(pett);
+                tdObj.parent().children().slice(8,9).html(monn);
             }
             //处理esc的情况
             if (keycode == 27) {
