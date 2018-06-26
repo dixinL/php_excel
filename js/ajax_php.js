@@ -24,6 +24,16 @@ function up_flight() {
     xhr.onload = function () {
         alert (xhr.responseText);
         $("#new_adf").addClass("active");
+        city();
+    }
+    xhr.send(null);
+}
+//更新城市菜单
+function city() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('get','city.php');
+    xhr.onload = function () {
+        document.getElementById('address').innerHTML = xhr.responseText;
     }
     xhr.send(null);
 }
@@ -32,7 +42,7 @@ function flight() {
     var xhr = new XMLHttpRequest();
     xhr.open('get','cover_destination.php?address='+document.getElementById("address").value);
     xhr.onload = function () {
-        document.getElementById('destination_select').innerHTML = xhr.responseText;
+        document.getElementById('destination').innerHTML = xhr.responseText;
         $("#up_flight").removeClass("active");
     }
     xhr.send(null);
@@ -43,8 +53,8 @@ function destination() {
     var xhr = new XMLHttpRequest();
     xhr.open('get','cover_flight.php?address='+document.getElementById("address").value+'&destination='+document.getElementById("destination").value);
     xhr.onload = function () {
-        document.getElementById('flight_select').innerHTML = xhr.responseText;
-        document.getElementById('address1').innerText = document.getElementById("address").value;
+        document.getElementById('flight').innerHTML = xhr.responseText;
+        //document.getElementById('address1').innerText = document.getElementById("address").value;
     }
     xhr.send(null);
 }
@@ -159,4 +169,8 @@ function recoverr() {
     }
     xhr.send(null);
 
+}
+function body() {
+    city();
+    flight();
 }

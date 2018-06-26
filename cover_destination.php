@@ -13,7 +13,6 @@ $q = "SELECT DISTINCT destination FROM php_excel WHERE address = '$_GET[address]
 $rs = mysql_query($q, $dbh);
 /* 定义变量 rs ,函数mysql_query()的意思是:送出 query 字串供 MySQL 做相关的处理或者执行.由于php是从右往左执行的,所以,rs的值是服务器运行mysql_query()函数后返回的值 */
 if(!$rs){die("");}
-echo "<select id=\"destination\" name=\"destination\" class=\"sele\" onchange=\"destination()\">";
 echo "<option value=\"\" disabled selected class=\"active\">请选择目的地</option>";
 while($row = mysql_fetch_row($rs)) echo "<option value='$row[0]'>$row[0]</option>";
 /* 定义量变(数组)row,并利用while循环,把数据一一写出来.

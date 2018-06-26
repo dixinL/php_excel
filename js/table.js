@@ -16,7 +16,8 @@ trEdit();//td的点击事件封装成一个函数
 $(document).ready(function() {
     $("#add_table").bind("click", function(){
         var myDate = new Date();//获取系统当前时间
-        var times = myDate.toLocaleString( );
+        var times1 = myDate.toLocaleString();
+        var times = times1.substring(0,12);
         var address1=document.getElementById("address").value;
         var flight1=document.getElementById("flight").value;
         var order1=document.getElementById("order").value;
@@ -26,13 +27,13 @@ $(document).ready(function() {
         var pet_num=cat1/1+dog1/1;
         var sum_pet=pet_num*1000;
         var sum_money=pet_num*7;
-        if(address1 !=='' && flight1 !=='' && order1 !=='' && destination1 !==''){
             $("<tr><td>"+order1+"</td><td>"+flight1+"</td><td>"+times+"</td><td>"+address1+"</td><td>"+destination1+"</td><td>"+cat1+"</td><td>"+dog1+"</td><td>"+sum_pet+"</td><td>"+sum_money+"</td><td></td><td class='dd'><a href='javascript:void(0);' class='delBtn'>删除</a></td></tr>").insertBefore(".append-row");
-        }
+
         del();
         del1();
         trEdit();
         delTr();
+        countRowTotal1();
         //$("tbody tr:odd").css("background-color","#EEEEEE");
     });
     delTr();
@@ -100,6 +101,7 @@ function trEdit(){
                 var monn = pet0*7;
                 tdObj.parent().children().slice(7,8).html(pett);
                 tdObj.parent().children().slice(8,9).html(monn);
+                countRowTotal1();
             }
             //处理esc的情况
             if (keycode == 27) {
@@ -108,4 +110,32 @@ function trEdit(){
             }
         });
     });
+}
+function countRowTotal1() {
+    var table = document.getElementById("targetTable");
+    var rows = table.rows.length-1;
+    var cat = 0;
+    for (var i=7;i<rows;i++){
+        var mytable = document.getElementById("targetTable").rows[i].cells[5].innerHTML;
+        cat = cat/1+mytable/1;
+    }
+    document.getElementById('catN').innerText =cat;
+    var dog = 0;
+    for (var i=7;i<rows;i++){
+        var mytable = document.getElementById("targetTable").rows[i].cells[6].innerHTML;
+        dog = dog/1+mytable/1;
+    }
+    document.getElementById('dogN').innerText =dog;
+    var pet = 0;
+    for (var i=7;i<rows;i++){
+        var mytable = document.getElementById("targetTable").rows[i].cells[7].innerHTML;
+        pet = pet/1+mytable/1;
+    }
+    document.getElementById('petN').innerText =pet;
+    var mon = 0;
+    for (var i=7;i<rows;i++){
+        var mytable = document.getElementById("targetTable").rows[i].cells[8].innerHTML;
+        mon = mon/1+mytable/1;
+    }
+    document.getElementById('monN').innerText =mon;
 }
