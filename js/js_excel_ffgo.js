@@ -128,9 +128,15 @@ var tableToExcel = (function ()
             time = time.replace(' ','');
             if(time0 !== '午'){
                 time = time.substring(0,time.length - 1);
-                downloadLink.download = '统计'+time+'.xls';
+                time = time.substring(4,9);
+                time1 = time.substring(0,1);
+                time2 = time.substring(1,8);
+                downloadLink.download = '货物起运前申报单'+time1+'-'+time2+'.xls';
             }else{
-                downloadLink.download = '统计'+time+'.xls';
+                time = time.substring(4,10);
+                time1 = time.substring(0,2);
+                time2 = time.substring(2,8);
+                downloadLink.download = '货物起运前申报单'+time1+'-'+time2+'.xls';
             }
             document.body.appendChild(downloadLink);
             downloadLink.click();

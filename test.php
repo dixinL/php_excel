@@ -122,22 +122,7 @@
                         </td>
                     </tr>
                 </table>
-                <script type="text/javascript">
-                    var calcTotal=function(table,column){//合计，表格对象，对哪一列进行合计，第一列从0开始
-                        var trs=document.getElementsByTagName('tr');
-                        var start=8,//忽略第一行的表头
-                            end=trs.length-1;//忽略最后合计的一行
-                        var total=0;
-                        for(var
-                                i=start;i<end;i++){
-                            var td=trs[i].getElementsByTagName('td')[column];
-                            var t=parseFloat(td.innerHTML);
-                            if(t)total+=t;
-                        }
-                        trs[end].getElementsByTagName('td')[column].innerHTML=total;
-                    };
-                    calcTotal(document.getElementById('table'),2);
-                </script>
+
                 <input id="Button1" type="button" value="导出EXCEL" onclick="table2excel('targetTable')"/>
                 <input id="save" type="button" value="保存" onclick="save()"/>
                 <input id="recover1" type="button" value="恢复信息" onclick="recover1()"/>

@@ -23,10 +23,17 @@ header('Content-Type: text/html;charset=utf-8');
     //删除
     //$exec="delete from dixin.leagueoflegends where id IN ($i)";
     //写入
-        $ti1=$_POST['time'];
-        $exec1="delete from dixin.pet_table where times = '$ti1'";
-        $ds=mysql_query($exec1);
-        $exec="insert into dixin.pet_table VALUES ('','".$_POST['time']."','".$_POST['address']."','".$_POST['destination']."','".$_POST['flight']."','".$_POST['order']."','".$_POST['cat']."','".$_POST['dog']."','".$_POST['ps']."')";
+        $ti1=$_POST['id'];
+        $time=$_POST["time"];
+        $address=$_POST["address"];
+        $destination = $_POST['destination'];
+        $flight = $_POST['flight'];
+        $order = $_POST['order'];
+        $cat = $_POST['cat'];
+        $dog = $_POST['dog'];
+        $ps = $_POST['ps'];
+        if ($ti1!==''){
+        $exec="UPDATE dixin.pet_table SET times = '".$time."',address = '".$address."',destination = '".$destination."',flight = '".$flight."',orders = '".$order."',cat = '".$cat."',dog = '".$dog."',ps = '".$ps."' WHERE id = $ti1";
         $result= mysql_query($exec);
         if (!$result){
             echo '保存失败';
@@ -36,4 +43,17 @@ header('Content-Type: text/html;charset=utf-8');
         }
     //这里是插入数据库的语句
     mysql_close($connection);
+        }else{
+            $exec="insert into dixin.pet_table VALUES ('','".$_POST['time']."','".$_POST['address']."','".$_POST['destination']."','".$_POST['flight']."','".$_POST['order']."','".$_POST['cat']."','".$_POST['dog']."','".$_POST['ps']."')";
+            $result= mysql_query($exec);
+            if (!$result){
+                echo '保存失败';
+            }
+            else{
+                echo '保存成功';
+            }
+            //这里是插入数据库的语句
+            mysql_close($connection);
+        }
+
 ?>

@@ -27,7 +27,7 @@ $(document).ready(function() {
         var pet_num=cat1/1+dog1/1;
         var sum_pet=pet_num*1000;
         var sum_money=pet_num*7;
-            $("<tr><td>"+order1+"</td><td>"+flight1+"</td><td>"+times+"</td><td>"+address1+"</td><td>"+destination1+"</td><td>"+cat1+"</td><td>"+dog1+"</td><td>"+sum_pet+"</td><td>"+sum_money+"</td><td></td><td class='dd'><a href='javascript:void(0);' class='delBtn'>删除</a></td></tr>").insertBefore(".append-row");
+            $("<tr><td>"+order1+"</td><td>"+flight1+"</td><td>"+times+"</td><td>"+address1+"</td><td>"+destination1+"</td><td>"+cat1+"</td><td>"+dog1+"</td><td>"+sum_pet+"</td><td>"+sum_money+"</td><td></td><td class='dd'><a href='javascript:void(0);' class='delBtn'>删除</a></td><td></td></tr>").insertBefore(".append-row");
 
         del();
         del1();

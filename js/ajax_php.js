@@ -50,6 +50,7 @@ function flight() {
 //更新目的地菜单
 function destination() {
     del();
+    del2();
     var xhr = new XMLHttpRequest();
     xhr.open('get','cover_flight.php?address='+document.getElementById("address").value+'&destination='+document.getElementById("destination").value);
     xhr.onload = function () {
@@ -62,9 +63,11 @@ function pass_up() {
     $("#new_adf").addClass("active");
 }
 function del() {
-    document.getElementById('order').value='';
     document.getElementById('cat').value='';
     document.getElementById('dog').value='';
+}
+function del2() {
+    document.getElementById('order').value='';
 }
 function del1() {
     document.getElementById('destination').value='';
@@ -76,7 +79,7 @@ function save() {
     console.log(rowsa);
     for(var i=7;i<rowsa;i++){
         var tabs= new Array();
-        for(var j=0;j<10;j++){
+        for(var j=0;j<12;j++){
             tabs[j]= document.getElementById('targetTable').rows[i].cells[j].innerHTML;
         }
         var jso = JSON.stringify(tabs);
@@ -89,7 +92,7 @@ function save() {
                 document.getElementById('act').innerHTML = xhr.responseText;
             }
         }
-        xhr.send('order='+tabs[0]+'&flight='+tabs[1]+'&address='+tabs[3]+'&destination='+tabs[4]+'&cat='+tabs[5]+'&dog='+tabs[6]+'&ps='+tabs[9]+'&time='+tabs[2]);
+        xhr.send('order='+tabs[0]+'&flight='+tabs[1]+'&address='+tabs[3]+'&destination='+tabs[4]+'&cat='+tabs[5]+'&dog='+tabs[6]+'&ps='+tabs[9]+'&time='+tabs[2]+'&id='+tabs[11]);
     }
 }
 //时间
@@ -159,6 +162,7 @@ function recoverr() {
         $(xhr.responseText).insertBefore(".append-row");
         trEdit();
         delTr();
+        countRowTotal1();
         var xx = xhr.responseText;
         if(xx.substring(3,2)=="<"){
             alert ('读取成功');
