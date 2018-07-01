@@ -34,7 +34,7 @@ else{
             $pet_num=$row[6]/1+$row[7]/1;
             $sum_pet=$pet_num*1000;
             $sum_money=$pet_num*7;
-            echo "<tr><td>$row[5]</td><td>$row[4]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[6]</td><td>$row[7]</td><td>$sum_pet</td><td>$sum_money</td><td>$row[8]</td><td class='dd'><a href='javascript:void(0);' class='delBtn'>删除</a></td><td class='active'>$row[0]</td></tr>";
+            echo "<tr><td>$row[5]</td><td>$row[4]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[6]</td><td>$row[7]</td><td>$sum_pet</td><td>$sum_money</td><td>$row[8]</td><td class='dd'><a href='javascript:void(0);' class='delBtn'>删除</a></td><td class='active dd'>$row[0]</td></tr>";
         }
    }
 //这里是插入数据库的语句
