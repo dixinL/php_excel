@@ -120,24 +120,16 @@ var tableToExcel = (function ()
             var downloadLink = document.createElement("a");
             downloadLink.href = uri + format(template, ctx);
             var myDate = new Date();//获取系统当前时间
-            var times = myDate.toLocaleString( );
-            var time = times.substr(0,13);
-            var time0 = time.substr(12,1);
-            time = time.replace('/','');
-            time = time.replace('/','');
-            time = time.replace(' ','');
-            if(time0 !== '午'){
-                time = time.substring(0,time.length - 1);
-                time = time.substring(4,9);
-                time1 = time.substring(0,1);
-                time2 = time.substring(1,8);
-                downloadLink.download = '货物起运前申报单'+time1+'-'+time2+'.xls';
-            }else{
-                time = time.substring(4,10);
-                time1 = time.substring(0,2);
-                time2 = time.substring(2,8);
-                downloadLink.download = '货物起运前申报单'+time1+'-'+time2+'.xls';
+            var mon = myDate.getMonth();       //获取当前月份(0-11,0代表1月)
+            mon = mon+1;
+            var day = myDate.getDate();
+            var hou = myDate.getHours();
+            if(hou<12){
+                var apm = '上午';
+            }else if (hou>=12){
+                var apm = '下午';
             }
+            downloadLink.download = '货物起运前申报单'+mon+'-'+day+apm+'.xls';
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);

@@ -16,8 +16,17 @@ trEdit();//td的点击事件封装成一个函数
 $(document).ready(function() {
     $("#add_table").bind("click", function(){
         var myDate = new Date();//获取系统当前时间
-        var times1 = myDate.toLocaleString();
-        var times = times1.substring(0,12);
+        var yea = myDate.getFullYear();
+        var mon = myDate.getMonth();       //获取当前月份(0-11,0代表1月)
+        mon = mon+1;
+        var day = myDate.getDate();
+        var hou = myDate.getHours();
+        if(hou<12){
+            var apm = '上午';
+        }else if (hou>=12){
+            var apm = '下午';
+        }
+        var times = yea+'/'+mon+'/'+day+' '+apm;
         var address1=document.getElementById("address").value;
         var flight1=document.getElementById("flight").value;
         var order1=document.getElementById("order").value;
