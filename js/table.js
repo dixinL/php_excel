@@ -52,6 +52,9 @@ $(document).ready(function() {
 function delTr(){
     $(".delBtn").click(function(){
         $(this).parent().parent().remove();
+        $delData = $(this).parent().parent().children().slice(11,12).text();
+        delTableData($delData);
+        countRowTotal1();
     });
 }
 /*

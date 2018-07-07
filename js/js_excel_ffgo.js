@@ -129,7 +129,8 @@ var tableToExcel = (function ()
             }else if (hou>=12){
                 var apm = '下午';
             }
-            downloadLink.download = '货物起运前申报单'+mon+'-'+day+apm+'.xls';
+            var fileXls = '货物起运前申报单'+mon+'-'+day+apm+'.xls';
+            downloadLink.download = fileXls;
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);

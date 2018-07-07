@@ -178,3 +178,15 @@ function body() {
     city();
     flight();
 }
+//删除数据
+function delTableData(delId) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('post','del_table.php');
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState==4&&xhr.status==200){
+            alert(xhr.responseText);
+        }
+    };
+    xhr.send('delId='+delId);
+}
