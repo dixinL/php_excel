@@ -190,3 +190,16 @@ function delTableData(delId) {
     };
     xhr.send('delId='+delId);
 }
+
+//确认提交数据
+function up_confirm() {
+    var new_address=document.getElementById("new_address").value;
+    var new_flight=document.getElementById("new_flight").value;
+    var new_destination=document.getElementById("new_destination").value;
+    var mess = '新航班：'+new_flight+'  从：'+new_address+'  至：'+new_destination;
+    document.getElementById("confirm2").innerHTML = mess;
+    document.getElementById("confirm").classList.remove("active");
+}
+function pass_confirm() {
+    $("#confirm").addClass("active");
+}

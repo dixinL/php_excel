@@ -134,20 +134,30 @@
 <div id="new_adf" class="onit active">
     <form>
         添加新地址：
-        <input type="text" id="new_address" class="inputwid">
-        <br/>
-        添加新航班：
-        <input type="text" id="new_flight" class="inputwid">
+        <input type="text" id="new_address" class="inputwid" placeholder="起飞地">
         <br/>
         添加目的地：
-        <input type="text" id="new_destination" class="inputwid">
+        <input type="text" id="new_destination" class="inputwid" placeholder="目的地">
+        <br/>
+        添加新航班：
+        <input type="text" id="new_flight" class="inputwid" placeholder="航班号">
         <br/>
         <div class="cen marg">
-            <a href="###" onclick="up_flight()">添加新航班</a>
+            <a href="###" onclick="up_confirm()">添加新航班</a>
             <a href="###" onclick="pass_up()">取消</a>
+        </div>
+        <div id="confirm" class="active">
+            <div id="confirm2">
+
+            </div>
+            <div class="cen marg">
+                <a href="###" onclick="up_flight()">确认添加</a>
+                <a href="###" onclick="pass_confirm()">取消</a>
+            </div>
         </div>
     </form>
 </div>
+
 <div id="reco" class="onit active">
     <form name="reg_testdate">
             <select id="yyyy" name="YYYY" onchange="YYYYDD(this.value)">
